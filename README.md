@@ -186,21 +186,27 @@ To interpret the model's predictions and understand feature importance, SHAP (SH
   - Highlighted interactions with other features, such as `NumOfProducts`, indicating that multiple factors contribute to churn risk.
   - **Insight**: Customers with multiple products and a high balance relative to their age require targeted retention strategies.
 
-  ![SHAP Dependence Plot](SHAP%20Study/shap_dependence_plot.png)
+  <p align="center">
+    <img src="SHAP%20Study/shap_dependence_plot.png" alt="SHAP Dependence Plot" width="600"/>
+  </p>
 
 - **SHAP Summary Plot**:
 
   - Visualized the impact of all features on the model output.
   - Identified `NumOfProducts`, `Age`, `IsActiveMember`, and `Geography_Germany` as the most influential features.
 
-  ![SHAP Summary Plot](SHAP%20Study/shap_summary_plot.png)
+  <p align="center">
+    <img src="SHAP%20Study/shap_summary_plot.png" alt="SHAP Summary Plot" width="600"/>
+  </p>
 
 - **SHAP Bar Plot (Feature Importance)**:
 
   - Ranked features based on their average absolute SHAP values.
   - Provided actionable insights for prioritizing customer segments in retention strategies.
 
-  ![SHAP Bar Plot](SHAP%20Study/shap_bar_plot.png)
+  <p align="center">
+    <img src="SHAP%20Study/shap_bar_plot.png" alt="SHAP Bar Plot" width="600"/>
+  </p>
 
 The SHAP plots are available in the `SHAP Study` folder.
 
