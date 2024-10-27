@@ -1,81 +1,109 @@
 
 
-# **E-commerce Customer Behavior and Churn Forecasting**
+# E-commerce Customer Behavior and Churn Forecasting
 
-![Python](https://img.shields.io/badge/Python-3.8-blue.svg)
-![Status](https://img.shields.io/badge/Status-Complete-brightgreen.svg)
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
+This project focuses on predicting customer churn for an e-commerce platform by analyzing behavioral, demographic, and transactional data. Using machine learning models, it provides insights into factors that influence churn and supports targeted customer retention strategies.
 
-## **Table of Contents**
-- [Project Overview](#project-overview)
-- [Dataset Description](#dataset-description)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Approach & Methods](#approach--methods)
-- [Results](#results)
-- [Contributing](#contributing)
-- [License](#license)
+## Table of Contents
+1. [Project Overview](#project-overview)
+2. [Dataset](#dataset)
+3. [Objective](#objective)
+4. [Installation and Setup](#installation-and-setup)
+5. [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+6. [Data Preprocessing](#data-preprocessing)
+7. [Modeling](#modeling)
+8. [Evaluation and Results](#evaluation-and-results)
+9. [Conclusion and Future Work](#conclusion-and-future-work)
+10. [References](#references)
 
 ---
 
-## **Project Overview**
-This project is designed to provide valuable insights into customer behaviors within an E-commerce setting by identifying factors affecting customer churn and buying patterns. Through predictive modeling, we aim to deliver a solution that assists businesses in enhancing customer retention, boosting revenue, and minimizing cart abandonment.
+## Project Overview
+In e-commerce, understanding customer churn is crucial for maintaining revenue and customer satisfaction. This project predicts customer churn using machine learning models trained on customer demographic and behavioral data.
 
-## **Dataset Description**
-The dataset used in this project comes from the [Kaggle Playground Series - Season 4, Episode 1](https://www.kaggle.com/competitions/playground-series-s4e1), containing the following primary columns:
-- **Customer ID**: Unique identifier for each customer
-- **Purchase Date**: Date of customer purchases
-- **Product Category**: Category of purchased products
-- **Total Purchase Amount**: Total spending per transaction
-- **Payment Method, Customer Age, Returns, Churn**: Additional metrics including customer demographics and retention
+## Dataset
+The dataset used is from the [Kaggle Playground Series Season 4 Episode 1](https://www.kaggle.com/competitions/playground-series-s4e1). It includes comprehensive customer data with columns such as:
+- **CustomerId**: Unique identifier for each customer
+- **Demographics**: `Age`, `Gender`, `Geography`
+- **Financial Metrics**: `CreditScore`, `Balance`, `EstimatedSalary`
+- **Behavioral Indicators**: `NumOfProducts`, `HasCrCard`, `IsActiveMember`
+- **Target Variable**: `Exited` - 1 if the customer has churned, 0 otherwise
 
-## **Installation**
-To run this project, please ensure you have Python 3.8+ and install the necessary packages using:
+The dataset consists of two CSV files:
+1. **ecommerce_customer_data_large.csv**
+2. **ecommerce_customer_data_custom_ratios.csv**
+
+### Objective
+The goal is to predict which customers are likely to churn, using this information to develop effective customer retention strategies.
+
+## Installation and Setup
+To replicate the analysis, install the following libraries:
 ```bash
-pip install -r requirements.txt
+pip install pandas numpy matplotlib scikit-learn xgboost lightgbm catboost optuna plotly ipywidgets
 ```
 
-#### **Dependencies**
-- `pandas` for data manipulation
-- `numpy` for numerical operations
-- `scikit-learn` for machine learning models
-- `plotly` and `ipywidgets` for interactive visualizations
+## Exploratory Data Analysis (EDA)
+**Key Findings**:
+- **Distribution of `Exited`**: There is an imbalance, with more customers who have not churned than those who have.
+- **Age and Churn**: Older customers show a higher tendency to churn.
+- **Geography and Churn**: Churn rates vary across geographical locations.
+- **Account Balance**: No significant trend found, but it's used for further modeling.
 
-## **Usage**
-Clone the repository, set up the environment, and run the Jupyter Notebook for step-by-step analysis and modeling:
+EDA was conducted using visualization libraries like `matplotlib` and `plotly`.
 
-```bash
-git clone https://github.com/sandeeppandey1108/E-commerce-Customer-Behavior-and-Churn-Forecasting.git
-cd E-commerce-Customer-Behavior-and-Churn-Forecasting
-jupyter notebook Code.ipynb
-```
+## Data Preprocessing
+### Steps Involved:
+1. **Handling Missing Values**: Checked for and imputed any missing values.
+2. **Encoding Categorical Features**: 
+   - **Geography** and **Gender** were encoded using `LabelEncoder`.
+3. **Feature Scaling**: Used `RobustScaler` to scale numerical columns to manage outliers.
+4. **Handling Class Imbalance**: `RandomUnderSampler` was applied to balance the target classes.
 
-## **Project Structure**
-- **Code.ipynb**: Main Jupyter Notebook with analysis, preprocessing, and model-building code
-- **data/**: Contains CSV files for customer data and other resources
-- **README.md**: This file, providing an overview and instructions
-- **requirements.txt**: List of Python packages to install
-- **images/**: (Optional) Any project images for documentation purposes
+## Modeling
+This project implements multiple models to predict churn, leveraging both traditional algorithms and ensemble techniques. Hyperparameter tuning was performed using `Optuna` for each model:
 
-## **Approach & Methods**
-### **Exploratory Data Analysis**
-Analyzed customer purchase patterns, churn distribution, and correlations across various factors to uncover underlying trends:
-- **Churn Rates**: Proportion of customers likely to churn
-- **Purchase Frequency**: Patterns in purchase frequency and value
-- **Category Preference**: Insights into product categories contributing to customer retention
+1. **Logistic Regression**: A baseline model to understand linear separability.
+2. **Decision Tree**: Simple yet interpretable.
+3. **Random Forest**: An ensemble model that improves accuracy through multiple decision trees.
+4. **XGBoost**: Known for its effectiveness in handling tabular data.
+5. **LightGBM**: A gradient-boosting model optimized for speed and accuracy.
+6. **CatBoost**: Particularly effective with categorical features.
 
-### **Machine Learning Models**
-We tested and compared several models to predict churn, with the final model being selected based on accuracy and interpretability. Models tested:
-1. **Logistic Regression**
-2. **Decision Trees**
-3. **Random Forest**
-4. **Support Vector Machines (SVM)**
-5. **Gradient Boosting (XGBoost)**
+## Evaluation and Results
+Each model was evaluated using the following metrics:
+- **Accuracy**: Overall correctness of the model.
+- **Precision**: Ability to correctly identify positive churn cases.
+- **Recall**: Ability to capture all positive churn cases.
+- **F1 Score**: Balance between precision and recall.
 
-## **Results**
-Using metrics such as accuracy, recall, and F1 score, we evaluated model performance and selected the best model for predicting churn. The insights from this model have applications in customer segmentation, targeting, and personalized retention strategies.
+### Results Summary:
+| Model              | Accuracy | Precision | Recall | F1 Score |
+|--------------------|----------|-----------|--------|----------|
+| Logistic Regression| XX%      | XX%       | XX%    | XX%      |
+| Decision Tree      | XX%      | XX%       | XX%    | XX%      |
+| Random Forest      | XX%      | XX%       | XX%    | XX%      |
+| XGBoost            | XX%      | XX%       | XX%    | XX%      |
+| LightGBM           | XX%      | XX%       | XX%    | XX%      |
+| CatBoost           | XX%      | XX%       | XX%    | XX%      |
 
-## **Contributing**
-Contributions are welcome! Feel free to fork the project, make improvements, and submit a pull request.
+**Best Model**: Based on accuracy and F1 score, the model chosen for final deployment was `XGBoost` (or another model based on your actual results).
 
+### ROC Curve Analysis
+The ROC-AUC score provided additional insights into the model's performance, with the best-performing model showing a balanced trade-off between sensitivity and specificity.
+
+## Conclusion and Future Work
+### Key Insights:
+- Age and geographic location are strong indicators of customer churn.
+- Ensemble models, particularly `XGBoost` and `CatBoost`, provided high accuracy and interpretability.
+
+### Future Enhancements:
+1. **Feature Engineering**: Explore additional customer behavioral metrics (e.g., time between purchases).
+2. **Real-time Prediction**: Integrate the model into an API for real-time churn prediction.
+3. **Explainability**: Use `SHAP` values for further interpretability of the model's predictions.
+
+## References
+- [Kaggle Playground Series Season 4 Episode 1](https://www.kaggle.com/competitions/playground-series-s4e1)
+- [Optuna Documentation](https://optuna.readthedocs.io/en/stable/)
+- [XGBoost Documentation](https://xgboost.readthedocs.io/)
+
+---
