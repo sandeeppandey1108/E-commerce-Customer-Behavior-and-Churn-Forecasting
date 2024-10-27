@@ -366,7 +366,7 @@ This project is licensed under the terms of the **Apache License 2.0**. Please r
 For any questions or collaboration opportunities, please reach out:
 
 - **Emails**:
-  - [sandeeppandey1108@gmail.com](mailto:sandeeppandey1108@gmail.com)
+  - [sandeeppandey1108@gmail.com](mailto:sandeeppandey00880@gmail.com)
   - [alvi2241998@gmail.com](mailto:alvi2241998@gmail.com)
 - **LinkedIn**:
   - [Sandeep Pandey](https://www.linkedin.com/in/sandy-pandey/)
