@@ -187,7 +187,7 @@ To interpret the model's predictions and understand feature importance, SHAP (SH
   - **Insight**: Customers with multiple products and a high balance relative to their age require targeted retention strategies.
 
   <p align="center">
-    <img src="SHAP%20Study/shap_dependence_plot.png" alt="SHAP Dependence Plot" width="600"/>
+    <img src="SHAP%20Study/shap_dependence_plot.png" alt="SHAP Dependence Plot" width="300"/>
   </p>
 
 - **SHAP Summary Plot**:
@@ -196,7 +196,7 @@ To interpret the model's predictions and understand feature importance, SHAP (SH
   - Identified `NumOfProducts`, `Age`, `IsActiveMember`, and `Geography_Germany` as the most influential features.
 
   <p align="center">
-    <img src="SHAP%20Study/shap_summary_plot.png" alt="SHAP Summary Plot" width="600"/>
+    <img src="SHAP%20Study/shap_summary_plot.png" alt="SHAP Summary Plot" width="300"/>
   </p>
 
 - **SHAP Bar Plot (Feature Importance)**:
@@ -205,7 +205,7 @@ To interpret the model's predictions and understand feature importance, SHAP (SH
   - Provided actionable insights for prioritizing customer segments in retention strategies.
 
   <p align="center">
-    <img src="SHAP%20Study/shap_bar_plot.png" alt="SHAP Bar Plot" width="600"/>
+    <img src="SHAP%20Study/shap_bar_plot.png" alt="SHAP Bar Plot" width="300"/>
   </p>
 
 The SHAP plots are available in the `SHAP Study` folder.
