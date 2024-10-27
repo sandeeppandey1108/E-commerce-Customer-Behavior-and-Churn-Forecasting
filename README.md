@@ -77,16 +77,16 @@ Each model was evaluated using the following metrics:
 - **F1 Score**: Balance between precision and recall.
 
 ### Results Summary:
-| Model              | Accuracy | Precision | Recall | F1 Score |
-|--------------------|----------|-----------|--------|----------|
-| Logistic Regression| XX%      | XX%       | XX%    | XX%      |
-| Decision Tree      | XX%      | XX%       | XX%    | XX%      |
-| Random Forest      | XX%      | XX%       | XX%    | XX%      |
-| XGBoost            | XX%      | XX%       | XX%    | XX%      |
-| LightGBM           | XX%      | XX%       | XX%    | XX%      |
-| CatBoost           | XX%      | XX%       | XX%    | XX%      |
+| Model               | Accuracy | Precision | Recall | F1 Score |
+|---------------------|----------|-----------|--------|----------|
+| Logistic Regression | 74.62%   | 74.63%    | 74.62% | 74.61%   |
+| Decision Tree       | 72.57%   | 72.57%    | 72.57% | 72.57%   |
+| Random Forest       | 79.46%   | 79.48%    | 79.47% | 79.46%   |
+| XGBoost             | 80.13%   | 80.14%    | 80.13% | 80.13%   |
+| LightGBM            | 80.61%   | 80.62%    | 80.61% | 80.61%   |
+| CatBoost            | 80.62%   | 80.63%    | 80.62% | 80.62%   |
 
-**Best Model**: Based on accuracy and F1 score, the model chosen for final deployment was `XGBoost` (or another model based on your actual results).
+**Best Model**: Based on accuracy and F1 score, the model chosen for final deployment was `CatBoost` (with the hyper-parameters: 'depth': 5, 'learning_rate': 0.1052667277943049, 'l2_leaf_reg': 3.775242984771314, 'iterations': 172).
 
 ### ROC Curve Analysis
 The ROC-AUC score provided additional insights into the model's performance, with the best-performing model showing a balanced trade-off between sensitivity and specificity.
